@@ -9,13 +9,15 @@ export var TodoList = React.createClass({
         var {todos, showCompleted, searchText} = this.props;
 
         var renderTodos = () => {
-            if(todos.length === 0) {
+            var filteredTodos = TododAPI.filterTodos(todos, showCompleted, searchText);
+
+            if(filteredTodos.length === 0) {
                 return (
                     <p className="container__message">Nothing To Do</p>
                 );
             }
 
-            return TododAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
+            return filteredTodos.map((todo) => {
                 return(
                     <Todo key={todo.id} {...todo}/>
                 )
