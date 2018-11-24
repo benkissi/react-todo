@@ -130,9 +130,6 @@ describe('Actions', () => {
                         completed: true,
                     }
                 });
-                // expect(mockActions[0].updates).toInclude({
-                //      completed: true,
-                // });
                 expect(mockActions[0].updates.completedAt).toExist();
                 done();
             }, done());
